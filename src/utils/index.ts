@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Return a unique identifier with the given `len`.
@@ -7,9 +7,9 @@
  * @return {String}
  * @api private
  */
-module.exports.getUid = function(length) {
-  let uid = '';
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+export const getUid = (length: number): string => {
+  let uid = "";
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   const charsLength = chars.length;
 
   for (let i = 0; i < length; ++i) {
@@ -27,6 +27,6 @@ module.exports.getUid = function(length) {
  * @return {Number}
  * @api private
  */
-function getRandomInt(min, max) {
+export const getRandomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};

@@ -1,0 +1,6 @@
+{
+  "exec": "ts-node src/app.ts",
+  "ext": "js ts",
+  "verbose": true,
+  "ignore": ["node_modules"]
+}
