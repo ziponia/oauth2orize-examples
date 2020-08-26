@@ -1,13 +1,17 @@
 oauth2orize: oauth2 provider example
-===
+
+### Important
+
+This repository is a sample of changing awais786327/oauth2orize-examples to typescript.
+
+Thanks [@awais786327](https://github.com/awais786327)
 
 This example shows a provider which grants tokens in exchange for codes for
 
-  * The client application
-  * A user of the client application
+- The client application
+- A user of the client application
 
-Install
-===
+# Install
 
 ```bash
 git clone https://github.com/gerges-beshay/oauth2orize-examples.git
@@ -15,13 +19,12 @@ pushd oauth2orize-examples
 npm install
 ```
 
-Usage
-===
+# Usage
 
 ## Locally
 
 ```bash
-node app.js
+yarn dev
 ```
 
 Visit <http://localhost:3000/login> to see the server running locally.
@@ -32,13 +35,16 @@ Visit <http://localhost:3000/login> to see the server running locally.
 
 1. [Download](https://vercel.com/download) either Vercel Desktop (preferred) or Vercel CLI.
 2. Create a `.vercelignore` file in the root of the package (where package.json is located) with the following contents:
+
 ```ignore
 node_modules
 .eslintrc
 LICENSE.md
 README.md
 ```
+
 3. Create a `vercel.json` file in the root of the package with the following contents:
+
 ```json
 {
   "version": 2,
@@ -56,43 +62,44 @@ README.md
   ]
 }
 ```
+
 4. Execute `vercel` in the terminal/console. (If the command is not recognized, you might have to restart your computer.)
 5. Once you see the “Success! Deployment ready” message in the terminal, follow the URL of the deployment provided by the Vercel CLI.
 
-Provider / Consumer Walkthrough
-===
+# Provider / Consumer Walkthrough
 
 Interacting with this provider directly doesn't showcase it's oauth2 functionality.
 
 1. Visiting `/` takes you to a blank page... not too interesting
 2. `/login` will ask you for credentials.
-  * If you login before an oauth request you are taken directly to permission dialog when that request happens
-  * Otherwise you will be redirected here and then to the permission dialog
+
+- If you login before an oauth request you are taken directly to permission dialog when that request happens
+- Otherwise you will be redirected here and then to the permission dialog
+
 3. `/account` will allow you to see your user details
 
 In order to demo what this is actually accomplishing you'll need to run a consumer.
 
 See <https://github.com/coolaj86/example-oauth2orize-consumer>
 
-API
-===
+# API
 
 Below is a mapping of the API in the context of a passport-strategy
 
-* `/dialog/authorize` is the `authorizationURL`.
-* `/oauth/token` is the `tokenURL`
-* `/api/userinfo` is a protected resource that requires user permission
-* `/api/clientinfo` is a protected resource that requires a token generated from the client's id and secret
-* Usage of `scope` is not demonstrated in this example.
+- `/dialog/authorize` is the `authorizationURL`.
+- `/oauth/token` is the `tokenURL`
+- `/api/userinfo` is a protected resource that requires user permission
+- `/api/clientinfo` is a protected resource that requires a token generated from the client's id and secret
+- Usage of `scope` is not demonstrated in this example.
 
 The standalone usable resources are
 
-* `GET /` nothing
-* `GET /login` lets you login, presented by `/dialog/authorize` if you haven't logged in
-* `POST /login` processes the login
-* `GET /logout` lets you logout
-* `GET /account` lets your view your user info
+- `GET /` nothing
+- `GET /login` lets you login, presented by `/dialog/authorize` if you haven't logged in
+- `POST /login` processes the login
+- `GET /logout` lets you logout
+- `GET /account` lets your view your user info
 
 And then some internal resources that are of no concern for standalone users or consumers
 
-* `POST /dialog/authorize/decision`, processes the allow / deny
+- `POST /dialog/authorize/decision`, processes the allow / deny
