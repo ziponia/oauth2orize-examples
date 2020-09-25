@@ -1,6 +1,7 @@
 {
-  "exec": "ts-node src/app.ts",
+  "exec": "ts-node --project tsconfig.server.json src/server/app.ts",
   "ext": "js ts",
   "verbose": true,
+  "watch": ["src/server"],
   "ignore": ["node_modules"]
 }
